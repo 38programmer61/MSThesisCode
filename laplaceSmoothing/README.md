@@ -11,3 +11,4 @@ This code trains an n-gram language model with laplace smoothing and evaluates i
 **Note:** The execution time for the code is in terms of hours and it requires serious amount of memory usage. In my case, however, 16GB of RAM was sufficient  
 
 Musa Nuri İhtiyar
+
