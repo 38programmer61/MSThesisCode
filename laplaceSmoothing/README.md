@@ -1,4 +1,4 @@
-# N-Gram Models
+# N-Gram Models with Laplace Smoothing
 
 This code trains an n-gram language model with laplace smoothing and evaluates its performance for a given n value ("largest_value" in the code as  a variable)
 
