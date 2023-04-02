@@ -1,0 +1,24 @@
+Hyperparameter Experiment Results
+
+The basic procedure followed is like the following. For any given fixed sequence length, we started with a hyperparameter configuration which looked reasonable. After that, if the model was underfitting, relevant hyperparameters are changed so that the model's capacity is increased. When overfitting was seen the opposite is done.
+
+Initial Configuration
+BATCH_SIZE = 64
+MIN_TRAINING_SEQ_LEN = 2
+
+EMBED_DIM = 256
+FEED_FORWARD_DIM = 256
+NUM_HEADS = 3
+NUM_LAYERS = 2
+VOCAB_SIZE = 8
+EPOCHS = 40
+LR = 1e-3
+
+After that the following changes were made to experiment with different configurations for each sequence length value.
+1) LR = 1e-2
+2) NUM_LAYERS = 3
+3) EMBED_DIM = 512 and FEED_FORWARD_DIM = 512
+4) NUM_HEADS = 4
+
+Then results for training process was examined. The model with lowest perplexity value for validation set without overfitting (|perp_train - perp_val| < 0.05) was tried to chosen for each sequence length. The chosen models are given in the folder called "obtained_models".
+
