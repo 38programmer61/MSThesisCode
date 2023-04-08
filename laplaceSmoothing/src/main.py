@@ -29,8 +29,11 @@ from functools import partial
 
 def main():
     random.seed(638)
-    largest_value  = 10
-    lm = get_comprehensive_lm(largest_value)
+    largest_value, WILL_TRAIN_FROM_SCRATCH  = 10, True
+    if WILL_TRAIN_FROM_SCRATCH:
+        lm = get_comprehensive_lm(largest_value)
+    else:
+        lm = read_lm(largest_value)
     n_candidates, perp_values = list(range(largest_value, largest_value + 1)), []
     for n in n_candidates:
         print(n, 'started.')
@@ -40,6 +43,21 @@ def main():
         print(n, 'is completed. Perplexity value:', perp)
     write_results(n_candidates, perp_values, largest_value)
     plot_perp_values(perp_values, n_candidates, largest_value)
+
+def read_lm(n):
+    # By using https://stackoverflow.com/questions/2345151/how-to-save-read-class-wholly-in-python
+    print('LM Is Being Read.')
+    if n == 6:
+        f = open('./lang_model_s_6.obj', 'rb')
+    elif n == 8:
+        f = open('./lang_model_s_8.obj', 'rb')
+    elif n == 10:
+        f = open('./lang_model_s_10.obj', 'rb')
+    else:
+        raise Exception('N Value Given for N-gram with laplace is not defined.')
+    lm = pickle.load(f)
+    print('LM Was Read.')
+    return lm
 
 def get_train_text():
     print('Train Data Is Being Prepared.')
