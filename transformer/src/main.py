@@ -14,6 +14,7 @@ import pandas as pd
 # - https://stackoverflow.com/questions/32419510/how-to-get-reproducible-results-in-keras
 # - https://stackoverflow.com/questions/18221436/efficient-way-to-add-spaces-between-characters-in-a-string
 # - https://stackoverflow.com/questions/18221436/efficient-way-to-add-spaces-between-characters-in-a-string
+# - https://stackoverflow.com/questions/61078946/how-to-get-reproducible-results-keras-tensorflow
 
 def main():
     make_reproducible()
@@ -49,7 +50,7 @@ def main():
 
 def initialize_hyper_parameters():
     BATCH_SIZE = 64
-    SEQ_LEN = 2**5 - 1
+    SEQ_LEN = 2**10 - 1
     MIN_TRAINING_SEQ_LEN = 2
 
     EMBED_DIM = 256
@@ -70,6 +71,8 @@ def make_reproducible():
     random.seed(seed_value)
     np.random.seed(seed_value)
     tf.random.set_seed(seed_value)
+    tf.keras.utils.set_random_seed(seed_value)
+    tf.config.experimental.enable_op_determinism()
 
 def prepare_actual_datasets():
     prepare_actual_dataset('./actual_train_without_val_dataset.csv', 'train')

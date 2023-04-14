@@ -48,10 +48,8 @@ def main():
 def read_lm(n):
     # By using https://stackoverflow.com/questions/2345151/how-to-save-read-class-wholly-in-python
     print('LM Is Being Read.')
-    if n <= 5:
-        f = open('./lang_model_5.obj', 'rb')
-    elif n == 6:
-        f = open('./lang_model_s_6.obj', 'rb')
+    if n >= 1:
+        f = open('./lang_model_s_' + str(n) + '.obj', 'rb')
     else:
         raise Exception('N Value Given for N-gram is not defined.')
     lm = pickle.load(f)

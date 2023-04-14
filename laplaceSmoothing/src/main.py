@@ -49,10 +49,10 @@ def read_lm(n):
     print('LM Is Being Read.')
     if n == 6:
         f = open('./lang_model_s_6.obj', 'rb')
+    elif n == 7:
+        f = open('./lang_model_s_7.obj', 'rb')
     elif n == 8:
         f = open('./lang_model_s_8.obj', 'rb')
-    elif n == 10:
-        f = open('./lang_model_s_10.obj', 'rb')
     else:
         raise Exception('N Value Given for N-gram with laplace is not defined.')
     lm = pickle.load(f)
