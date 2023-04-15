@@ -22,3 +22,41 @@ After that the following changes were made to experiment with different configur
 
 Then results for training process was examined. The model with lowest perplexity value for validation set without overfitting (|perp_train - perp_val| < 0.05) was tried to chosen for each sequence length. The chosen models are given in the folder called "obtained_models".
 
+
+Default: 
+
+    SEQ_LEN = 2**10 - 1   # 128
+    
+
+
+    EMBED_DIM = 256
+    LSTM_DIM = 256
+    NUM_LAYERS = 2
+    
+
+
+    EPOCHS = 40             # 6
+    LR = 1e-3
+
+
+
+
+Then 
+
+1) def:			epoch 13: val_perplexity: 3.4273
+2) NUM_LAYERS = 1
+ep15: val_perplexity: 3.5816
+3) NUM_LAYERS = 3
+Ep 17: val_perplexity: 3.3880
+4) EMBED_DIM = 128
+Ep 15: val_perplexity: 3.4449
+5) LSTM_DIM = 128
+12 val_perplexity: 3.4446
+6) NUM_LAYERS = 4 	ep 13: val_perplexity: 3.4131
+7) EMBED_DIM = 512	ep 10: val_perplexity: 3.4712
+8) LSTM_DIM = 512	val_perplexity: 3.3934 (not stable)
+
+run  ultimate (3) 3.3880
+
+Test res for 3) 3.3935		(real)
+
