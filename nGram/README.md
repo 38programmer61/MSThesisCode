@@ -8,6 +8,6 @@ This code trains an n-gram language model and evaluates its performance for a gi
 - Furthermore, the program uses some external libraries which are listed in "requirements.txt" file inside "src" folder. They ought to be installed. Doing it is actually simple. Start a terminal from "src" folder. Then run "pip install -r requirements.txt" to install them.  
 - Lastly, you can run the code by using "python main.py" command after setting the desired n value in the code by using "largest_value" variable and choosing if it will train from scratch by using "WILL_TRAIN_FROM_SCRATCH" variable.
 
-**Note:** The execution time for the code is in terms of hours and it requires serious amount of memory usage. In my case, however, 16GB of RAM was sufficient  
+**Note:** The execution time for the code is about an hour and it requires some amount of memory usage. In my case, however, 16GB of RAM was sufficient  
 
 Musa Nuri İhtiyar

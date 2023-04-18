@@ -2,61 +2,22 @@ Hyperparameter Experiment Results
 
 The basic procedure followed is like the following. For any given fixed sequence length, we started with a hyperparameter configuration which looked reasonable. After that, if the model was underfitting, relevant hyperparameters are changed so that the model's capacity is increased. When overfitting was seen the opposite is done.
 
-Initial Configuration
-BATCH_SIZE = 64
-MIN_TRAINING_SEQ_LEN = 2
-
-EMBED_DIM = 256
-LSTM_DIM = 256
-NUM_LAYERS = 2
-VOCAB_SIZE = 8 
-
-EPOCHS = 40
-LR = 1e-3
-
-After that the following changes were made to experiment with different configurations for each sequence length value.
-1) NUM_LAYERS = 1
-2) NUM_LAYERS = 3
-3) EMBED_DIM = 128
-4) LSTM_DIM = 128
-
-Then results for training process was examined. The model with lowest perplexity value for validation set without overfitting (|perp_train - perp_val| < 0.05) was tried to chosen for each sequence length. The chosen models are given in the folder called "obtained_models".
-
-
-Default: 
-
-    SEQ_LEN = 2**10 - 1   # 128
-    
-
-
-    EMBED_DIM = 256
-    LSTM_DIM = 256
-    NUM_LAYERS = 2
-    
-
-
-    EPOCHS = 40             # 6
-    LR = 1e-3
-
-
-
+Initial Choice (Trial 1): 	val_perplexity: 3.4273
+- EMBED_DIM = 256
+- LSTM_DIM = 256
+- NUM_LAYERS = 2  
 
 Then 
 
-1) def:			epoch 13: val_perplexity: 3.4273
-2) NUM_LAYERS = 1
-ep15: val_perplexity: 3.5816
-3) NUM_LAYERS = 3
-Ep 17: val_perplexity: 3.3880
-4) EMBED_DIM = 128
-Ep 15: val_perplexity: 3.4449
-5) LSTM_DIM = 128
-12 val_perplexity: 3.4446
-6) NUM_LAYERS = 4 	ep 13: val_perplexity: 3.4131
-7) EMBED_DIM = 512	ep 10: val_perplexity: 3.4712
-8) LSTM_DIM = 512	val_perplexity: 3.3934 (not stable)
+Trial 2) NUM_LAYERS = 1		val_perplexity: 3.5816
+Trial 3) NUM_LAYERS = 3		val_perplexity: 3.3880	(CHOSEN)
+Trial 4) EMBED_DIM = 128	val_perplexity: 3.4449
+Trial 5) LSTM_DIM = 128		val_perplexity: 3.4446
+Trial 6) NUM_LAYERS = 4 	val_perplexity: 3.4131
+Trial 7) EMBED_DIM = 512	val_perplexity: 3.4712
+Trial 8) LSTM_DIM = 512		val_perplexity: 3.3934 (not stable)
 
-run  ultimate (3) 3.3880
 
-Test res for 3) 3.3935		(real)
 
+Test Set Results For Trial 3)  test_perplexity: 3.3935		
+	

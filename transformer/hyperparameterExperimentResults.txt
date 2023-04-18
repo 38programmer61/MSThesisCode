@@ -1,70 +1,26 @@
 Hyperparameter Experiment Results
 
 The basic procedure followed is like the following. For any given fixed sequence length, we started with a hyperparameter configuration which looked reasonable. After that, if the model was underfitting, relevant hyperparameters are changed so that the model's capacity is increased. When overfitting was seen the opposite is done.
-
-Initial Configuration
-BATCH_SIZE = 64
-MIN_TRAINING_SEQ_LEN = 2
-
-EMBED_DIM = 256
-FEED_FORWARD_DIM = 256
-NUM_HEADS = 3
-NUM_LAYERS = 2
-VOCAB_SIZE = 8
-EPOCHS = 40
-LR = 1e-3
-
-After that the following changes were made to experiment with different configurations for each sequence length value.
-1) LR = 1e-2
-2) NUM_LAYERS = 3
-3) EMBED_DIM = 512 and FEED_FORWARD_DIM = 512
-4) NUM_HEADS = 4
-
-Then results for training process was examined. The model with lowest perplexity value for validation set without overfitting (|perp_train - perp_val| < 0.05) was tried to chosen for each sequence length. The chosen models are given in the folder called "obtained_models".
-
-Default: 
-
-
-    SEQ_LEN = 2**10 - 1   # 128
-
-    # Model
-    EMBED_DIM = 256
-    FEED_FORWARD_DIM = 256
-    NUM_HEADS = 3
-    NUM_LAYERS = 2
-
-    EPOCHS = 40             # 6
-    LR = 1e-3
-
-
-
+ 
+Initial Choice (Trial 1): 		val_perplexity: 3.6601
+- EMBED_DIM = 256
+- FEED_FORWARD_DIM = 256
+- NUM_LAYERS = 2  
+- NUM_HEADS = 3
 
 Then
 
-
-1) def
-Ep 12: val_perplexity: 3.6601
-2) NUM_LAYERS = 3
-11 val_perplexity: 3.6472
-3) NUM_HEADS = 4
-12 val_perplexity: 3.6614
-4) EMBED_DIM = 512 
-13 val_perplexity: 3.6562
-
- 
+Trial 2) NUM_LAYERS = 3			val_perplexity: 3.6472
+Trial 3) NUM_HEADS = 4			val_perplexity: 3.6614
+Trial 4) EMBED_DIM = 512 		val_perplexity: 3.6562
+Trial 5) FEED_FORWARD_DIM = 512		val_perplexity: 3.6438
+Trial 6) NUM_LAYERS = 4			val_perplexity: 3.6377
+Trial 7) EMBED_DIM = 1024		val_perplexity: 3.6656
+Trial 8) FEED_FORWARD_DIM = 1024	val_perplexity: 3.6454
+Trial 9) NUM_LAYERS = 5			val_perplexity: 3.6331	(CHOSEN)
 
 
 
+Test Set Results For Trial 3)  	       test_perplexity: 3.6361	
 
-5) FEED_FORWARD_DIM = 512		ep14 val_perplexity: 3.6438
-6) NUM_LAYERS = 4			ep10 val_perplexity: 3.6377
-7) EMBED_DIM = 1024			ep19 val_perplexity: 3.6656
-8) FEED_FORWARD_DIM = 1024	ep14 val_perplexity: 3.6454
-9) NUM_LAYERS = 5			ep11 val_perplexity: 3.6331
-
-Ultimate 9 with ep11
-
-Run ultimate
-
-1) test res: 3.6361	(real)
 
