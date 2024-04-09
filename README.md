@@ -1,5 +1,6 @@
 # MSThesisCode
 
+[The most up-to-date version of the study can be found in the link](https://github.com/boun-tabi/GenerativeLM-Genes/tree/main)
 This is the code repository for the implementation of ideas described in MS Thesis with the title "Machine Learning based Language Models on Nucleotide Sequences of Human Genes" by Musa Nuri İhtiyar from Computer Engineering Department of Boğaziçi University.
 
 "actualDatasets" folder contains files to be used for training and evaluation of various models.
